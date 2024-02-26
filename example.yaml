@@ -1,0 +1,20 @@
+uart:
+  tx_pin: GPIO1
+  rx_pin: GPIO3
+  baud_rate: 19200
+  debug:
+    direction: BOTH
+    dummy_receiver: false
+    after:
+      delimiter: "\n"
+    sequence:
+      - lambda: UARTDebug::log_hex(direction, bytes, ':');
+
+external_components:
+  - source:
+      type: git
+      url: https://github.com/lipov3cz3k/esphome-bspool-chlorinator
+    components: [ bs_pool ]
+
+bs_pool:
+  update_interval: 5s
