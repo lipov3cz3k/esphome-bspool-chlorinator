@@ -18,3 +18,20 @@ external_components:
 
 bs_pool:
   update_interval: 5s
+
+sensor:
+  - platform: bs_pool
+    cell_current:
+      name: Cell current
+    cell_intensity:
+      name: Cell intensity
+    cell_voltage:
+      name: Cell voltage
+    ph:
+      name: pH
+    salt_concentration:
+      name: Salt concentration
+    time:
+      name: Device Time
+    version:
+      name: Device firmware version

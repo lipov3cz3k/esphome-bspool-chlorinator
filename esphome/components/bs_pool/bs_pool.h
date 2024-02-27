@@ -7,6 +7,14 @@ namespace esphome {
 namespace bs_pool {
 
 enum FunctionCode : char {
+  // Sensors
+  CELL_CURRENT_MEASUREMENT = 'c',
+  CELL_INTENSITY_MEASUREMENT = 'C',
+  CELL_VOLTAGE_MEASUREMENT = 'V',
+  PH_MEASUREMENT = 'p',
+  SALT_CONCENTRATION_MEASUREMENT = 'N',
+  TIME = 'H',
+  SOFTWARE_VERSION = 'y',
 };
 
 union DataPacket {
