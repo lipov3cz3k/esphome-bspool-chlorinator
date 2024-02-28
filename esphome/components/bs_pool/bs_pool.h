@@ -7,6 +7,10 @@ namespace esphome {
 namespace bs_pool {
 
 enum FunctionCode : char {
+  // Binary sensors
+  ALARMS = 'A',
+  WARNINGS = 'w',
+  STATUS = 's',
   // Sensors
   CELL_CURRENT_MEASUREMENT = 'c',
   CELL_INTENSITY_MEASUREMENT = 'C',
