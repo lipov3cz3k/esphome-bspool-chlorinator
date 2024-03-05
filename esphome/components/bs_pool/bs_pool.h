@@ -20,6 +20,7 @@ enum FunctionCode : char {
   TIME = 'H',
   SOFTWARE_VERSION = 'y',
   RADOX_MEASUREMENT = 'o',
+  TEMPERATURE_MEASUREMENT = 'W',
 };
 
 union DataPacket {

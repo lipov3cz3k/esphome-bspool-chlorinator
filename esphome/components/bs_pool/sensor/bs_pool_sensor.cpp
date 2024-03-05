@@ -31,6 +31,8 @@ const std::vector<FunctionCode> BSPoolSensor::codes_to_poll() {
     active_codes.push_back(FunctionCode::SOFTWARE_VERSION);
   if (this->radox_sensor_ != nullptr)
     active_codes.push_back(FunctionCode::RADOX_MEASUREMENT);
+  if (this->temperature_sensor_ != nullptr)
+    active_codes.push_back(FunctionCode::TEMPERATURE_MEASUREMENT);
   return active_codes;
 }
 
@@ -77,6 +79,15 @@ void BSPoolSensor::handle_message(DataPacket &message) {
     case FunctionCode::RADOX_MEASUREMENT:
       if (this->radox_sensor_ != nullptr)
         this->radox_sensor_->publish_state(get_u16(message));
+      break;
+    case FunctionCode::TEMPERATURE_MEASUREMENT:
+      if (this->temperature_sensor_ != nullptr) {
+          int temperature = message.data_b2;
+          if (message.data_b3 == 1) {
+            temperature = -temperature;
+          }
+          this->temperature_sensor_->publish_state(temperature == -255 ? NAN : temperature);
+        }
       break;
   }
 }
