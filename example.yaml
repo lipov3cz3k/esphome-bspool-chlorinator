@@ -35,6 +35,8 @@ sensor:
       name: Device Time
     version:
       name: Device firmware version
+    radox:
+      name: ORP
 
 binary_sensor:
   - platform: bs_pool

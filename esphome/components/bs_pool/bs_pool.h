@@ -19,6 +19,7 @@ enum FunctionCode : char {
   SALT_CONCENTRATION_MEASUREMENT = 'N',
   TIME = 'H',
   SOFTWARE_VERSION = 'y',
+  RADOX_MEASUREMENT = 'o',
 };
 
 union DataPacket {
