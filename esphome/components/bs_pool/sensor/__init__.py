@@ -30,6 +30,7 @@ CONF_CELL_CURRENT = "cell_current"
 CONF_CELL_INTENSITY = "cell_intensity"
 CONF_CELL_VOLTAGE = "cell_voltage"
 CONF_SALT_CONCENTRATION = "salt_concentration"
+CONF_RADOX = "radox"
 
 
 TYPES = [
@@ -40,6 +41,7 @@ TYPES = [
     CONF_SALT_CONCENTRATION,
     CONF_TIME,
     CONF_VERSION,
+    CONF_RADOX,
 ]
 
 CONFIG_SCHEMA = cv.All(
@@ -93,6 +95,13 @@ CONFIG_SCHEMA = cv.All(
             cv.Optional(CONF_VERSION): sensor.sensor_schema(
                 accuracy_decimals=1,
                 entity_category=ENTITY_CATEGORY_DIAGNOSTIC,
+            ),
+            cv.Optional(CONF_RADOX): sensor.sensor_schema(
+                unit_of_measurement=UNIT_VOLT,
+                icon="mdi:water",
+                accuracy_decimals=1,
+                state_class=STATE_CLASS_MEASUREMENT,
+                device_class=DEVICE_CLASS_EMPTY,
             ),
         }
     ).extend(cv.COMPONENT_SCHEMA)

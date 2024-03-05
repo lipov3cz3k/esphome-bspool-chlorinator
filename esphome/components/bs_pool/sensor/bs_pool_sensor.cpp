@@ -29,6 +29,8 @@ const std::vector<FunctionCode> BSPoolSensor::codes_to_poll() {
     active_codes.push_back(FunctionCode::TIME);
   if (this->version_sensor_ != nullptr)
     active_codes.push_back(FunctionCode::SOFTWARE_VERSION);
+  if (this->radox_sensor_ != nullptr)
+    active_codes.push_back(FunctionCode::RADOX_MEASUREMENT);
   return active_codes;
 }
 
@@ -71,6 +73,10 @@ void BSPoolSensor::handle_message(DataPacket &message) {
     case FunctionCode::SOFTWARE_VERSION:
       if (this->version_sensor_ != nullptr)
         this->version_sensor_->publish_state(message.data_b2 + message.data_b3 / 10.0f);
+      break;
+    case FunctionCode::RADOX_MEASUREMENT:
+      if (this->radox_sensor_ != nullptr)
+        this->radox_sensor_->publish_state(get_u16(message));
       break;
   }
 }
