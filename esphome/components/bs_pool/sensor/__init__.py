@@ -4,6 +4,7 @@ from esphome.components import sensor
 from esphome.const import (
     CONF_ID,
     CONF_PH,
+    CONF_TEMPERATURE,
     CONF_TIME,
     CONF_VERSION,
     DEVICE_CLASS_CURRENT,
@@ -13,9 +14,10 @@ from esphome.const import (
     ENTITY_CATEGORY_DIAGNOSTIC,
     ICON_CURRENT_AC,
     ICON_PERCENT,
-    ICON_TIMER,
+    ICON_THERMOMETER,
     STATE_CLASS_MEASUREMENT,
     UNIT_AMPERE,
+    UNIT_CELSIUS,
     UNIT_MINUTE,
     UNIT_PERCENT,
     UNIT_PH,
@@ -42,6 +44,7 @@ TYPES = [
     CONF_TIME,
     CONF_VERSION,
     CONF_RADOX,
+    CONF_TEMPERATURE,
 ]
 
 CONFIG_SCHEMA = cv.All(
@@ -102,6 +105,12 @@ CONFIG_SCHEMA = cv.All(
                 accuracy_decimals=1,
                 state_class=STATE_CLASS_MEASUREMENT,
                 device_class=DEVICE_CLASS_EMPTY,
+            ),
+            cv.Optional(CONF_TEMPERATURE): sensor.sensor_schema(
+                unit_of_measurement=UNIT_CELSIUS,
+                icon=ICON_THERMOMETER,
+                accuracy_decimals=0,
+                state_class=STATE_CLASS_MEASUREMENT,
             ),
         }
     ).extend(cv.COMPONENT_SCHEMA)

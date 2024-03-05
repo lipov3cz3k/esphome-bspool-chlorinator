@@ -37,6 +37,8 @@ sensor:
       name: Device firmware version
     radox:
       name: ORP
+    temperature:
+      name: Temperature
 
 binary_sensor:
   - platform: bs_pool
