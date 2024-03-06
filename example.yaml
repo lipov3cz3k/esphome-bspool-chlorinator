@@ -31,14 +31,17 @@ sensor:
       name: pH
     salt_concentration:
       name: Salt concentration
-    time:
-      name: Device Time
-    version:
-      name: Device firmware version
     radox:
       name: ORP
     temperature:
       name: Temperature
+
+text_sensor:
+  - platform: bs_pool
+    time:
+      name: Device Time
+    version:
+      name: Device firmware version
 
 binary_sensor:
   - platform: bs_pool

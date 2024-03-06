@@ -18,8 +18,6 @@ class BSPoolSensor : public BSPoolListener, public Component {
   SUB_SENSOR(cell_voltage);
   SUB_SENSOR(ph);
   SUB_SENSOR(salt_concentration);
-  SUB_SENSOR(time);
-  SUB_SENSOR(version);
   SUB_SENSOR(radox);
   SUB_SENSOR(temperature);
 };
