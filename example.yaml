@@ -87,3 +87,8 @@ binary_sensor:
       name: Electrode cleaning in process
     status_super_chlorination:
       name: Super-chlorination in process
+
+select:
+  - platform: bs_pool
+    control_mode:
+      name: Control mode
