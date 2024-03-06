@@ -25,10 +25,6 @@ const std::vector<FunctionCode> BSPoolSensor::codes_to_poll() {
     active_codes.push_back(FunctionCode::PH_MEASUREMENT);
   if (this->salt_concentration_sensor_ != nullptr)
     active_codes.push_back(FunctionCode::SALT_CONCENTRATION_MEASUREMENT);
-  if (this->time_sensor_ != nullptr)
-    active_codes.push_back(FunctionCode::TIME);
-  if (this->version_sensor_ != nullptr)
-    active_codes.push_back(FunctionCode::SOFTWARE_VERSION);
   if (this->radox_sensor_ != nullptr)
     active_codes.push_back(FunctionCode::RADOX_MEASUREMENT);
   if (this->temperature_sensor_ != nullptr)
@@ -67,14 +63,6 @@ void BSPoolSensor::handle_message(DataPacket &message) {
         else
           this->salt_concentration_sensor_->publish_state(NAN);
       }
-      break;
-    case FunctionCode::TIME:
-      if (this->time_sensor_ != nullptr)
-        this->time_sensor_->publish_state(message.data_b3 * 60 + message.data_b2);
-      break;
-    case FunctionCode::SOFTWARE_VERSION:
-      if (this->version_sensor_ != nullptr)
-        this->version_sensor_->publish_state(message.data_b2 + message.data_b3 / 10.0f);
       break;
     case FunctionCode::RADOX_MEASUREMENT:
       if (this->radox_sensor_ != nullptr)
