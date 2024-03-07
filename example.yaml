@@ -92,3 +92,22 @@ select:
   - platform: bs_pool
     control_mode:
       name: Control mode
+
+switch:
+  - platform: bs_pool
+    user_is_outdoor:
+      name: Pool is outdoor
+    user_cover_switch_off:
+      name: Cover switch off
+    user_flow_switch_installed:
+      name: Flow switch installed
+    user_orp_displayed:
+      name: ORP displayed
+    user_ph_alarm:
+      name: pH alarm
+    user_ph_corrector_alkaline:
+      name: pH corrector alkaline
+    user_ph_control:
+      name: pH control
+    user_cover_installed:
+      name: Cover installed

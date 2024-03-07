@@ -7,6 +7,8 @@ namespace esphome {
 namespace bs_pool {
 
 enum FunctionCode : char {
+  // Switches
+  USER = 'r',
   // Select
   CONTROL_MODE = 'm',
   // Binary sensors
