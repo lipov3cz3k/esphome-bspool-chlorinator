@@ -30,13 +30,13 @@ const std::vector<FunctionCode> BSPoolSwitch::codes_to_poll() {
 void BSPoolSwitch::handle_message(DataPacket &message) {
   switch (message.function_code) {
     case FunctionCode::USER:
-      this->user_is_outdoor_switch_->publish_state(message.data_b2 & 0x01);
-      this->user_cover_switch_off_switch_->publish_state(message.data_b2 & 0x02);
+      this->user_is_outdoor_switch_->publish_state(!(message.data_b2 & 0x01));
+      this->user_cover_switch_off_switch_->publish_state(message.data_b2 & 0x02); // TODO check if this is correct
       this->user_flow_switch_installed_switch_->publish_state(message.data_b2 & 0x04);
       this->user_orp_displayed_switch_->publish_state(message.data_b2 & 0x08);
-      this->user_ph_alarm_switch_->publish_state(message.data_b2 & 0x10);
+      this->user_ph_alarm_switch_->publish_state(!(message.data_b2 & 0x10));
       this->user_ph_corrector_alkaline_switch_->publish_state(message.data_b2 & 0x20);
-      this->user_ph_control_switch_->publish_state(message.data_b2 & 0x40);
+      this->user_ph_control_switch_->publish_state(!(message.data_b2 & 0x40));
       this->user_cover_installed_switch_->publish_state(message.data_b2 & 0x80);
       break;
     default:
