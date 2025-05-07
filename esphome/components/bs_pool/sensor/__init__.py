@@ -81,7 +81,7 @@ CONFIG_SCHEMA = cv.All(
                 device_class=DEVICE_CLASS_EMPTY,
             ),
             cv.Optional(CONF_RADOX): sensor.sensor_schema(
-                unit_of_measurement=UNIT_VOLT,
+                unit_of_measurement="mV",
                 icon="mdi:water",
                 accuracy_decimals=1,
                 state_class=STATE_CLASS_MEASUREMENT,
