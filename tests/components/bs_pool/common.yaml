@@ -1,0 +1,101 @@
+uart:
+  - baud_rate: 19200
+    tx_pin: ${tx_pin}
+    rx_pin: ${rx_pin}
+
+bs_pool:
+  update_interval: 5s
+
+sensor:
+  - platform: bs_pool
+    cell_current:
+      name: Cell current
+    cell_intensity:
+      name: Cell intensity
+    cell_voltage:
+      name: Cell voltage
+    ph:
+      name: pH
+    salt_concentration:
+      name: Salt concentration
+    radox:
+      name: ORP
+    temperature:
+      name: Temperature
+
+
+text_sensor:
+  - platform: bs_pool
+    time:
+      name: Device Time
+    version:
+      name: Device firmware version
+
+binary_sensor:
+  - platform: bs_pool
+    alarm_redox_saturated:
+      name: ORP probe saturated alarm
+    alarm_overtemperature:
+      name: Overtemperature inside the chlorinator
+    alarm_open_circuit:
+      name: Open circuit alarm
+    alarm_water_flow:
+      name: Lack of water flow alarm
+    alarm_short_circuit:
+      name: Short circuit alarm
+    alarm_unit_stopped:
+      name: P954 unit stopped alarm
+    alarm_communication_error:
+      name: Communication error to P954 alarm
+    warning_low_salt:
+      name: Too few salt
+    warning_high_salt:
+      name: Too much salt
+    warning_ph_pump_overrun:
+      name: pH problem, pump has run for too long
+    warning_acid:
+      name: Acid warning
+    warning_clock_set:
+      name: Clock has been set
+    warning_probe_disconnected:
+      name: ORP or chlorine probe disconnected
+    status_output_voltage_polarity:
+      name: Folarity of output voltage
+    status_filter_pump_running:
+      name: Filter pump running
+    status_chlorination_process:
+      name: Chlorination in process
+    status_stopped_by_remote:
+      name: Stopped by remote controller
+    status_orp_sensor_stable:
+      name: ORP sensor reading is stable
+    status_salt_sensor_connected:
+      name: Salt sensor connected
+    status_electrode_cleaning:
+      name: Electrode cleaning in process
+    status_super_chlorination:
+      name: Super-chlorination in process
+
+select:
+  - platform: bs_pool
+    control_mode:
+      name: Control mode
+
+switch:
+  - platform: bs_pool
+    user_is_outdoor:
+      name: Pool is outdoor
+    user_cover_switch_off:
+      name: Cover switch off
+    user_flow_switch_installed:
+      name: Flow switch installed
+    user_orp_displayed:
+      name: ORP displayed
+    user_ph_alarm:
+      name: pH alarm
+    user_ph_corrector_alkaline:
+      name: pH corrector alkaline
+    user_ph_control:
+      name: pH control
+    user_cover_installed:
+      name: Cover installed
