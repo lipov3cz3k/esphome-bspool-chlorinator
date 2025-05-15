@@ -36,7 +36,7 @@ void BSPoolSensor::handle_message(DataPacket &message) {
   switch (message.function_code) {
     case FunctionCode::CELL_CURRENT_MEASUREMENT:
       if (this->cell_current_sensor_ != nullptr)
-        this->cell_current_sensor_->publish_state(get_u16(message) / 100.0f);
+        this->cell_current_sensor_->publish_state(get_u16(message) / 10.0f);
       break;
     case FunctionCode::CELL_INTENSITY_MEASUREMENT:
       if (this->cell_intensity_sensor_ != nullptr)
@@ -44,7 +44,7 @@ void BSPoolSensor::handle_message(DataPacket &message) {
       break;
     case FunctionCode::CELL_VOLTAGE_MEASUREMENT:
       if (this->cell_voltage_sensor_ != nullptr)
-        this->cell_voltage_sensor_->publish_state(get_u16(message) / 100.0f);
+        this->cell_voltage_sensor_->publish_state(get_u16(message) / 10.0f);
       break;
     case FunctionCode::PH_MEASUREMENT:
       if (this->ph_sensor_ != nullptr) {
