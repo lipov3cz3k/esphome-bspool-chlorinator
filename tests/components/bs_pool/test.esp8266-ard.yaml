@@ -11,7 +11,7 @@ esp8266:
 external_components:
   - source:
       type: local
-      path: ../../../esphome/components
+      path: ../../../components
     components: [bs_pool]
 
 wifi:

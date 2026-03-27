@@ -31,9 +31,7 @@ Add the component as an external source in your ESPHome YAML:
 
 ```yaml
 external_components:
-  - source:
-      type: git
-      url: https://github.com/lipov3cz3k/esphome-bspool-chlorinator
+  - source: github://lipov3cz3k/esphome-bspool-chlorinator
     components: [ bs_pool ]
 ```
 
@@ -43,9 +41,7 @@ Minimal working configuration for ESP8266:
 
 ```yaml
 external_components:
-  - source:
-      type: git
-      url: https://github.com/lipov3cz3k/esphome-bspool-chlorinator
+  - source: github://lipov3cz3k/esphome-bspool-chlorinator
     components: [ bs_pool ]
 
 uart:

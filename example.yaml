@@ -11,9 +11,7 @@ uart:
       - lambda: UARTDebug::log_hex(direction, bytes, ':');
 
 external_components:
-  - source:
-      type: git
-      url: https://github.com/lipov3cz3k/esphome-bspool-chlorinator
+  - source: github://lipov3cz3k/esphome-bspool-chlorinator
     components: [ bs_pool ]
 
 bs_pool:

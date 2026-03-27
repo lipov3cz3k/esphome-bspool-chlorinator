@@ -16,7 +16,7 @@ esphome compile tests/components/bs_pool/test.esp8266-ard.yaml
 ## Architecture
 
 ```
-esphome/components/bs_pool/        # All source code lives here
+components/bs_pool/                # All source code lives here
 ├── __init__.py + bs_pool.{h,cpp}  # Core: BSPool hub, BSPoolListener, DataPacket, FunctionCode
 ├── sensor/                        # 7 measurement sensors
 ├── binary_sensor/                 # 21 status/alarm/warning binary sensors
