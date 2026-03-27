@@ -35,8 +35,7 @@ void BSPoolSelect::handle_message(DataPacket &message) {
 }
 
 void BSPoolSelect::send_command(FunctionCode code, char b2, char b3) {
-  this->parent_->write_array({code, b2, b3});
-  this->parent_->flush();
+  this->parent_->enqueue_command(code, b2, b3);
 }
 
 }  // namespace bs_pool
