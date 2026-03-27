@@ -2,4 +2,22 @@ substitutions:
   tx_pin: GPIO4
   rx_pin: GPIO5
 
+esphome:
+  name: test-bs-pool-esp8266
+
+esp8266:
+  board: nodemcuv2
+
+external_components:
+  - source:
+      type: local
+      path: ../../../esphome/components
+    components: [bs_pool]
+
+wifi:
+  ssid: "TestSSID"
+  password: "TestPassword"
+
+logger:
+
 <<: !include common.yaml
