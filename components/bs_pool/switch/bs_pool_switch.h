@@ -6,17 +6,6 @@
 namespace esphome {
 namespace bs_pool {
 
-struct UserSettings {
-    bool is_outdoor : 1;
-    bool cover_switch_off : 1;
-    bool flow_switch_installed : 1;
-    bool orp_displayed : 1;
-    bool ph_alarm : 1;
-    bool ph_corrector_alkaline : 1;
-    bool ph_control : 1;
-    bool cover_installed : 1;
-};
-
 class BSPoolSwitch : public BSPoolListener,
                      public Component,
                      public Parented<BSPool> {
@@ -38,7 +27,8 @@ class BSPoolSwitch : public BSPoolListener,
   SUB_SWITCH(user_cover_installed);
 
  private:
-  void send_command_(FunctionCode code, char b2, char b3 = '\4');
+  uint8_t last_user_byte_{0xFF};
+  bool has_user_readback_{false};
 };
 
 }  // namespace bs_pool
