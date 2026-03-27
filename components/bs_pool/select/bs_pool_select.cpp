@@ -1,8 +1,5 @@
 #include "bs_pool_select.h"
 
-#include <map>
-#include <string>
-
 #include "esphome/core/log.h"
 
 namespace esphome {
