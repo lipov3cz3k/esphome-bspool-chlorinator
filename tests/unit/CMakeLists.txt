@@ -41,3 +41,13 @@ target_link_libraries(bs_pool_tests
 
 include(GoogleTest)
 gtest_discover_tests(bs_pool_tests)
+
+add_executable(pty_harness
+  ../integration/pty_harness.cpp
+  ../../components/bs_pool/bs_pool.cpp
+  ../../components/bs_pool/sensor/bs_pool_sensor.cpp
+)
+target_include_directories(pty_harness PRIVATE
+  ${CMAKE_CURRENT_SOURCE_DIR}/stubs
+  ${CMAKE_CURRENT_SOURCE_DIR}/../..
+)
