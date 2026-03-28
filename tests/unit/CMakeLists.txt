@@ -24,6 +24,7 @@ add_executable(bs_pool_tests
   smoke_test.cpp
   data_decoding_test.cpp
   handle_message_test.cpp
+  hub_test.cpp
   ../../components/bs_pool/bs_pool.cpp
   ../../components/bs_pool/sensor/bs_pool_sensor.cpp
   ../../components/bs_pool/binary_sensor/bs_pool_binary_sensor.cpp
